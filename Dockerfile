@@ -8,6 +8,8 @@ RUN mkdir -p /data
 COPY --chown=debian-tor data/ /data
 RUN mkdir -p /var/lib/tor/hidden_service
 # Massive security issue, Why are we including the private and public key in the image!
+# Suggestion, Instead do a check in a script during runtime and exit the container with 1 error code if these checks fail
+# Instead of doing these checks in the build process itself
 RUN if [ -d /data ] && [ -f /data/hostname ] && [ -f /data/hs_ed25519_public_key ] && [ -f /data/hs_ed25519_secret_key ]; then \
         cp -r /data/* /var/lib/tor/hidden_service/ && \
         chown -R debian-tor:debian-tor /var/lib/tor/hidden_service/ && \
