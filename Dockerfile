@@ -7,6 +7,7 @@ RUN apt-get update && \
 RUN mkdir -p /data
 COPY --chown=debian-tor data/ /data
 RUN mkdir -p /var/lib/tor/hidden_service
+# Massive security issue, Why are we including the private and public key in the image!
 RUN if [ -d /data ] && [ -f /data/hostname ] && [ -f /data/hs_ed25519_public_key ] && [ -f /data/hs_ed25519_secret_key ]; then \
         cp -r /data/* /var/lib/tor/hidden_service/ && \
         chown -R debian-tor:debian-tor /var/lib/tor/hidden_service/ && \
