@@ -4,6 +4,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+RUN mkdir -p /data
 COPY --chown=debian-tor data/ /data
 RUN mkdir -p /var/lib/tor/hidden_service
 RUN if [ -d /data ] && [ -f /data/hostname ] && [ -f /data/hs_ed25519_public_key ] && [ -f /data/hs_ed25519_secret_key ]; then \
