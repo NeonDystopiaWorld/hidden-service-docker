@@ -12,10 +12,10 @@ services:
     volumes:
       - ./data:/data
     build: .
-    security_opt:
-      - no-new-privileges:true
-    cap_drop:
-      - ALL
+    #security_opt:
+    #  - no-new-privileges:true
+    #cap_drop:
+    #  - ALL
     cap_add:
       - NET_BIND_SERVICE
     stop_grace_period: 1m
