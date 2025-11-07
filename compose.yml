@@ -1,12 +1,12 @@
 services:
-  nginx:
-    container_name: nginx
-    image: nginx
-    volumes:
-      - ./html:/usr/share/nginx/html
-      - ./logs:/var/log/nginx
-    networks:
-      - tor_network
+ # nginx:
+ #   container_name: nginx
+ #   image: nginx
+ #   volumes:
+ #     - ./html:/usr/share/nginx/html
+ #     - ./logs:/var/log/nginx
+ #   networks:
+ #     - tor_network
   tor:
     container_name: tor
     volumes:
