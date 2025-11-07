@@ -9,7 +9,7 @@ RUN chmod +x /entrypoint.sh
 
 RUN mkdir -p /data
 RUN mkdir -p /var/lib/tor/hidden_service
-RUN chown debian-tor -R /var/lib/tor/hidden_service/
+RUN chown debian-tor -R /var/lib/tor/hidden_service/ /data
 RUN echo "HiddenServiceDir /var/lib/tor/hidden_service/" > /etc/tor/torrc
 RUN echo "HiddenServicePort 80 192.168.1.115:8037" >> /etc/tor/torrc
 USER debian-tor
