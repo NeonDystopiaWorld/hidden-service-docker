@@ -9,6 +9,7 @@ services:
  #     - tor_network
   tor:
     container_name: tor
+    restart: always
     volumes:
       - ./data:/data
     build: .
