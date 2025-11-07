@@ -9,6 +9,8 @@ services:
       - tor_network
   tor:
     container_name: tor
+    volumes:
+      - ./data:/data
     build: .
     security_opt:
       - no-new-privileges:true

@@ -8,9 +8,8 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 RUN mkdir -p /data
-VOLUME /data
 RUN mkdir -p /var/lib/tor/hidden_service
-
+RUN chown debian-tor -R /var/lib/tor/hidden_service/
 RUN echo "HiddenServiceDir /var/lib/tor/hidden_service/" > /etc/tor/torrc
 RUN echo "HiddenServicePort 80 nginx:80" >> /etc/tor/torrc
 
